@@ -55,7 +55,7 @@ function notify() {
     if (id == "wakeupdate") {
       
       var w = window.open();
-      w.location = "https://chrome.google.com/webstore/detail/" + chrome.runtime.id + "/reviews";
+      w.location = "https://chrome.google.com/webstore/detail/" + chrome.runtime.id + "/details";
       
     } else if (id == "systemPowKeptAwake") {
       
@@ -109,7 +109,7 @@ function notify() {
     if (id == "wakeupdate") {
       
       var w = window.open();
-      w.location = "https://chrome.google.com/webstore/detail/" + chrome.runtime.id + "/reviews";
+      w.location = "https://chrome.google.com/webstore/detail/" + chrome.runtime.id + "/details";
       
     } else {
       
