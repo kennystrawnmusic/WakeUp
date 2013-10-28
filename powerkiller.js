@@ -86,6 +86,7 @@ window.onload = function() {
     if (b.width != screen.availWidth && b.height != screen.availHeight) {
       
       chrome.app.window.current().setBounds({left: 0, top: 0, width: screen.availWidth, height: screen.availHeight});
+      document.getElementById('windowbar').style.webkitAppRegion = "no-drag";
       
     } else {
       
@@ -98,8 +99,8 @@ window.onload = function() {
       var left = Math.floor((screenWidth-width)/2);
       var top = Math.floor((screenHeight-height)/2);
       
-      
       chrome.app.window.current().setBounds({left: left, top: top, width: width, height: height});
+      document.getElementById('windowbar').style.webkitAppRegion = "drag";
       
     }
     
