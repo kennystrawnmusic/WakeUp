@@ -8,6 +8,7 @@ chrome.app.runtime.onLaunched.addListener(function(){
     frame: 'none',
     minWidth: width,
     minHeight: height,
+    transparentBackground: true,
     bounds: {
       width: width,
       height: height,
@@ -17,12 +18,47 @@ chrome.app.runtime.onLaunched.addListener(function(){
   });
 });
 
+function isCrOS() {
+  
+  chrome.runtime.getPlatformInfo(function(info) {
+    
+    if (info.os != 'cros') {
+      
+      var opt = {
+        
+        type: "basic",
+        title: "Not a Chromebook!",
+        message: "You are using a computing device that isn't a Chromebook. Only devices running Chrome OS support the chrome.power API, rendering this app useless on your computer",
+        iconUrl: "icon_128.png"
+        
+      }
+      
+      chrome.notifications.create('notcros', opt, function(id) {
+        
+        id = "notcros";
+        console.log('Unsupported OS warning sent to user');
+        
+      });
+      
+    } else {
+      
+      //do nothing
+      
+    }
+    
+  });
+  
+}
+    
+
 function notify() {
   
   var manifest = chrome.runtime.getManifest();
   this.version = parseFloat(manifest.version);
   
   chrome.runtime.onInstalled.addListener(function(details) {
+    
+    isCrOS();
     
     var opt = {
     
@@ -68,6 +104,7 @@ function notify() {
         frame: 'none',
         minWidth: width,
         minHeight: height,
+        transparentBackground: true,
         bounds: {
           width: width,
           height: height,
@@ -87,6 +124,7 @@ function notify() {
         frame: 'none',
         minWidth: width,
         minHeight: height,
+        transparentBackground: true,
         bounds: {
           width: width,
           height: height,
@@ -94,6 +132,10 @@ function notify() {
           top: Math.floor((screenHeight-height)/2)
         }
       });
+      
+    } else if (id == 'notcros') {
+      
+      chrome.management.uninstallSelf();
       
     } else {
       
@@ -110,6 +152,10 @@ function notify() {
       
       var w = window.open();
       w.location = "https://chrome.google.com/webstore/detail/" + chrome.runtime.id + "/details";
+      
+    } else if (id == 'notcros') {
+      
+      chrome.management.uninstallSelf();
       
     } else {
       

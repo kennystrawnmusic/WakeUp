@@ -5,6 +5,7 @@ window.onload = function() {
   
   var appContentTopInt = parseInt(document.getElementById('appcontent').style.top, 10);
   var appContentHeightInt = parseInt(document.getElementById('appcontent').style.height, 10);
+  var titlebarWidthInt = parseInt(document.getElementById('windowbar').style.width, 10);
   
   document.getElementById('power1').style.width = document.getElementById('appcontent').style.width;
   document.getElementById('power1').style.left = document.getElementById('appcontent').style.left;
@@ -16,8 +17,9 @@ window.onload = function() {
   document.getElementById('powerEnd').style.left = document.getElementById('appcontent').style.left;
   document.getElementById('powerEnd').style.top = Math.floor(appContentHeightInt - 50) + 'px';
   
-  document.getElementById('titleStatement').style.left = Math.floor((window.innerWidth)/3) + 'px';
-  document.getElementById('titleStatement').style.top = appContentTopInt;
+  if (chrome.experimental == undefined) {
+    document.body.style.backgroundImage = 'url("BeachWallpaper.png")';
+  }
   
   document.getElementById('power1').onclick = function() { chrome.power.requestKeepAwake("system"); }
   
@@ -79,15 +81,25 @@ window.onload = function() {
   
   document.getElementById('maximize').onclick = function() {
     
-    var isMax = chrome.app.window.current().isMaximized();
+    var b = chrome.app.window.current().getBounds();
     
-    if (isMax === false) {
+    if (b.width != screen.availWidth && b.height != screen.availHeight) {
       
-      chrome.app.window.current().maximize();
+      chrome.app.window.current().setBounds({left: 0, top: 0, width: screen.availWidth, height: screen.availHeight});
       
     } else {
       
-      chrome.app.window.current().restore();
+      var screenWidth = screen.availWidth;
+      var screenHeight = screen.availHeight;
+      
+      var width = Math.floor(screenWidth/4);
+      var height = Math.floor(screenHeight*(4/5));
+      
+      var left = Math.floor((screenWidth-width)/2);
+      var top = Math.floor((screenHeight-height)/2);
+      
+      
+      chrome.app.window.current().setBounds({left: left, top: top, width: width, height: height});
       
     }
     
