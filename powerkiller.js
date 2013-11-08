@@ -17,10 +17,6 @@ window.onload = function() {
   document.getElementById('powerEnd').style.left = document.getElementById('appcontent').style.left;
   document.getElementById('powerEnd').style.top = Math.floor(appContentHeightInt - 50) + 'px';
   
-  if (chrome.experimental == undefined) {
-    document.body.style.backgroundImage = 'url("BeachWallpaper.png")';
-  }
-  
   document.getElementById('power1').onclick = function() { chrome.power.requestKeepAwake("system"); }
   
   document.getElementById('power1').addEventListener("click", function(opt) {
