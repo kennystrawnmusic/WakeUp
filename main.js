@@ -1,22 +1,64 @@
-chrome.app.runtime.onLaunched.addListener(function(){
-  var screenWidth = screen.availWidth;
-  var screenHeight = screen.availHeight;
-  var width = Math.floor(screenWidth/4);
-  var height = Math.floor(screenHeight*(4/5));
+function WakeWindow(){
+  this.screenWidth = screen.availWidth;
+  this.screenHeight = screen.availHeight;
+  this.width = Math.floor(this.screenWidth/4);
+  this.height = Math.floor(this.screenHeight*(4/5));
   
-  chrome.app.window.create('index.html', {
+  this.winOpts = {
+    
     frame: 'none',
-    minWidth: width,
-    minHeight: height,
+    minWidth: this.width,
+    minHeight: this.height,
+    maxWidth: this.screenWidth,
+    maxHeight: this.screenHeight,
     transparentBackground: true,
+    
     bounds: {
-      width: width,
-      height: height,
-      left: Math.floor((screenWidth-width)/2),
-      top: Math.floor((screenHeight-height)/2)
+      
+      width: this.width,
+      height: this.height,
+      left: Math.floor((this.screenWidth - this.width)/2),
+      top: Math.floor((this.screenHeight - this.height)/2)
+      
     }
-  });
+    
+  }
+  
+  this.win = chrome.app.window.create('index.html', this.winOpts);
+  
+  return {
+    "opts": this.winOpts,
+    "win": this.win
+  };
+  
+}
+
+chrome.app.runtime.onLaunched.addListener(function() {
+  
+  var w = new WakeWindow();
+  
+  if (w.opts.transparentBackground === undefined) {
+    
+    var opt = {
+      
+      type: "basic",
+      title: "Please enable the experimental APIs flag",
+      message: "There's a little roadblock to the ability to create transparent Aura/Ash windows that you're probably experiencing. Unless you enable the experimental APIs flag, your window won't be transparent, and that's because there are some apps Google knows about that have to work on Aura-less systems. Not this one, which will uninstall itself if installed on something other than a Chromebook...",
+      iconUrl: "icon_128.png"
+      
+    }
+    
+    chrome.notifications.create('extapis', opt, function(id) {
+      
+      id = "extapis";
+      console.log("Notification to enable chrome.experimental flag sent to user");
+      
+    });
+    
+  }
+  
 });
+
 
 function isCrOS() {
   
@@ -137,6 +179,10 @@ function notify() {
       
       chrome.management.uninstallSelf();
       
+    } else if (id == 'experimental_apis') {
+      
+      window.open().location = 'chrome://flags/#extension_apis';
+      
     } else {
       
       //do nothing
@@ -156,6 +202,10 @@ function notify() {
     } else if (id == 'notcros') {
       
       chrome.management.uninstallSelf();
+      
+    } else if (id == 'experimental_apis') {
+      
+      window.open().location = 'chrome://flags/#extension_apis';
       
     } else {
       
