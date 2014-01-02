@@ -70,7 +70,7 @@ function isCrOS() {
         
         type: "basic",
         title: "Not a Chromebook!",
-        message: "You are using a computing device that isn't a Chromebook. Only devices running Chrome OS support the chrome.power API, rendering this app useless on your computer",
+        message: "You are using a computing device that isn't a Chromebook. Therefore, you have two reasons not to install: A, only devices running Chrome OS support the chrome.power API, rendering this app useless on your computer, and B, your system's internal, native power management settings already accomplish what this app tries to do, making use of this app completely unnecessary.",
         iconUrl: "icon_128.png"
         
       }
