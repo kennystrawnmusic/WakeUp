@@ -234,6 +234,6 @@ function listen() {
   
 }
 
-setInterval(function() { listen(); }, 5000);
+setInterval(function() { listen(); }, 1000);
 
 notify();
