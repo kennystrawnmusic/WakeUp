@@ -1,5 +1,7 @@
 window.onload = function() {
   
+  document.getElementById('windowbar').style.width = window.innerWidth - 51 + 'px';
+  
   document.getElementById('appcontent').style.width = window.innerWidth + 'px';
   document.getElementById('appcontent').style.height = (window.innerHeight - 50) + 'px';
   
@@ -16,6 +18,10 @@ window.onload = function() {
   document.getElementById('powerEnd').style.width = document.getElementById('appcontent').style.width;
   document.getElementById('powerEnd').style.left = document.getElementById('appcontent').style.left;
   document.getElementById('powerEnd').style.top = Math.floor(appContentHeightInt - 50) + 'px';
+  
+  document.getElementById('bugreport').style.left = window.innerWidth - 50 + 'px';
+  
+  document.getElementById('bugreport').onclick = function() { window.open().location = "https://chrome.google.com/webstore/support/" + chrome.runtime.id; }
   
   document.getElementById('power1').onclick = function() { chrome.power.requestKeepAwake("system"); }
   
@@ -113,7 +119,9 @@ window.onload = function() {
     var appcontwidth = parseInt(document.getElementById('appcontent').style.width, 10);
     var appcontheight = parseInt(document.getElementById('appcontent').style.height, 10);
     
-    document.getElementById('windowbar').style.width = cb.width + 'px';
+    document.getElementById('windowbar').style.width = cb.width - 204 + 'px';
+    
+    document.getElementById('bugreport').style.left = cb.width - 50 + 'px';
     
     document.getElementById('appcontent').style.left = Math.floor((cb.width - appcontwidth)/2) + 'px';
     document.getElementById('appcontent').style.top = Math.floor((cb.height - appcontheight + 50)/2) + 'px';
