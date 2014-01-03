@@ -105,8 +105,8 @@ function notify() {
     var opt = {
     
       type: "basic",
-      title: "Please update your review",
-      message: "\"Wake Up!\" has been updated. If you have a negative review in the Chrome Web Store and it's of the previous version, we ask that you please update it to reflect the changes in the latest version. Thanks.",
+      title: "Please replace all negative reviews with legitimate bug reports",
+      message: "The Chrome Web Store has an inline bug tracker for a reason. People who are used to platforms that don't have the integrated bug tracker, like iOS, Android, and the Mac, tend to instinctively resort to writing reviews instead of making use of the bug-reporting resources available to them. We Chrome app developers ask that you please refrain from this practice in the future. Thanks.",
       iconUrl: "icon_128.png"
     
     }
@@ -133,7 +133,7 @@ function notify() {
     if (id == "wakeupdate") {
       
       var w = window.open();
-      w.location = "https://chrome.google.com/webstore/detail/" + chrome.runtime.id + "/details";
+      w.location = "https://chrome.google.com/webstore/support/" + chrome.runtime.id;
       
     } else if (id == "systemPowKeptAwake") {
       
@@ -179,7 +179,7 @@ function notify() {
       
       chrome.management.uninstallSelf();
       
-    } else if (id == 'experimental_apis') {
+    } else if (id == 'extapis') {
       
       window.open().location = 'chrome://flags/#extension_apis';
       
@@ -197,7 +197,7 @@ function notify() {
     if (id == "wakeupdate") {
       
       var w = window.open();
-      w.location = "https://chrome.google.com/webstore/detail/" + chrome.runtime.id + "/details";
+      w.location = "https://chrome.google.com/webstore/support/" + chrome.runtime.id;
       
     } else if (id == 'notcros') {
       
