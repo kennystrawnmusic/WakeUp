@@ -203,9 +203,9 @@ function notify() {
       
       chrome.management.uninstallSelf();
       
-    } else if (id == 'experimental_apis') {
+    } else if (id == 'extapis') {
       
-      window.open().location = 'chrome://flags/#extension_apis';
+      window.open().location = 'chrome://flags/#extension-apis';
       
     } else {
       
