@@ -37,7 +37,7 @@ chrome.app.runtime.onLaunched.addListener(function() {
   
   var w = new WakeWindow();
   
-  if (w.opts.transparentBackground === undefined) {
+  if (typeof(w.opts.transparentBackground) === undefined) {
     
     var opt = {
       
