@@ -185,7 +185,8 @@ function notify() {
       
     } else if (id == 'bugworkaround') {
       
-      window.open().location = 'chrome://chrome';
+      var w = window.open();
+      w.location = 'chrome://chrome';
       
     } else {
       //do nothing
