@@ -23,7 +23,33 @@ window.onload = function() {
   
   document.getElementById('bugreport').onclick = function() { window.open().location = "https://chrome.google.com/webstore/support/" + chrome.runtime.id; }
   
-  document.getElementById('power1').onclick = function() { chrome.power.requestKeepAwake("system"); }
+  document.getElementById('power1').onclick = function() { 
+    
+    chrome.runtime.getPlatformInfo(info) {
+      
+      var ua = navigator.userAgent;
+      if (info.arch == 'arm' && ua.match(/Chrome\/32\.0\..*/)) {
+        
+        var opt = {
+          type: "basic",
+          title: "Please update to the beta channel for this app to work",
+          message: "Several ARM users on Chrome OS 32.x have complained that the API seems to not work. Sinced this is only a 32.x-specific problem that has been fixed in 33, I, the sole developer, ask that you please switch channels to avoid this problem.",
+          iconUrl: "icon_128.png"
+        }
+        
+        chrome.notifications.create('bugworkaround', opt, function(id) {
+          console.log(id + 'message sent.');
+        });
+        
+      } else {
+        
+        chrome.power.requestKeepAwake('system');
+        
+      }
+      
+    }
+    
+  }
   
   document.getElementById('power1').addEventListener("click", function(opt) {
     
@@ -41,7 +67,33 @@ window.onload = function() {
     
   });
   
-  document.getElementById('power2').onclick = function() { chrome.power.requestKeepAwake("display"); }
+  document.getElementById('power2').onclick = function() { 
+    
+    chrome.runtime.getPlatformInfo(info) {
+      
+      var ua = navigator.userAgent;
+      if (info.arch == 'arm' && ua.match(/Chrome\/32\.0\..*/)) {
+        
+        var opt = {
+          type: "basic",
+          title: "Please update to the beta channel for this app to work",
+          message: "Several ARM users on Chrome OS 32.x have complained that the API seems to not work. Sinced this is only a 32.x-specific problem that has been fixed in 33, I, the sole developer, ask that you please switch channels to avoid this problem.",
+          iconUrl: "icon_128.png"
+        }
+        
+        chrome.notifications.create('bugworkaround', opt, function(id) {
+          console.log(id + 'message sent.');
+        });
+        
+      } else {
+        
+        chrome.power.requestKeepAwake('display');
+        
+      }
+      
+    }
+    
+  }
   
   document.getElementById('power2').addEventListener("click", function(opt) {
     
