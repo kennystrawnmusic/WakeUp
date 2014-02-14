@@ -25,7 +25,7 @@ window.onload = function() {
   
   document.getElementById('power1').onclick = function() { 
     
-    chrome.runtime.getPlatformInfo(info) {
+    chrome.runtime.getPlatformInfo(function(info) {
       
       var ua = navigator.userAgent;
       if (info.arch == 'arm' && ua.match(/Chrome\/32\.0\..*/)) {
@@ -47,7 +47,7 @@ window.onload = function() {
         
       }
       
-    }
+    });
     
   }
   
@@ -69,7 +69,7 @@ window.onload = function() {
   
   document.getElementById('power2').onclick = function() { 
     
-    chrome.runtime.getPlatformInfo(info) {
+    chrome.runtime.getPlatformInfo(function(info) {
       
       var ua = navigator.userAgent;
       if (info.arch == 'arm' && ua.match(/Chrome\/32\.0\..*/)) {
@@ -91,7 +91,7 @@ window.onload = function() {
         
       }
       
-    }
+    });
     
   }
   
