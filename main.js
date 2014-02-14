@@ -183,8 +183,11 @@ function notify() {
       
       window.open().location = 'chrome://flags/#extension_apis';
       
-    } else {
+    } else if (id == 'bugworkaround') {
       
+      window.open().location = 'chrome://chrome';
+      
+    } else {
       //do nothing
     }
     
