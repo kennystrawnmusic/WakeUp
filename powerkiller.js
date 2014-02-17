@@ -9,6 +9,8 @@ window.onload = function() {
   var appContentHeightInt = parseInt(document.getElementById('appcontent').style.height, 10);
   var titlebarWidthInt = parseInt(document.getElementById('windowbar').style.width, 10);
   
+  document.getElementById('titleStatement').style.width = titleBarWidthInt;
+  
   document.getElementById('power1').style.width = document.getElementById('appcontent').style.width;
   document.getElementById('power1').style.left = document.getElementById('appcontent').style.left;
   
