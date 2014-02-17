@@ -1,6 +1,6 @@
 window.onload = function() {
   
-  document.getElementById('windowbar').style.width = window.innerWidth - 51 + 'px';
+  document.getElementById('windowbar').style.width = window.innerWidth - 204 + 'px';
   
   document.getElementById('appcontent').style.width = window.innerWidth + 'px';
   document.getElementById('appcontent').style.height = (window.innerHeight - 50) + 'px';
