@@ -182,4 +182,23 @@ window.onload = function() {
       
   });
   
+  //move the window by one pixel in two directions to force the onBoundsChanged event to fire on startup
+  chrome.app.window.current().setBounds({
+    
+    'width': chrome.app.window.current().getBounds().width,
+    'height': chrome.app.window.current().getBounds().height,
+    'left': chrome.app.window.current().getBounds().left - 1,
+    'top': chrome.app.window.current().getBounds().top - 1
+    
+  });
+  
+  chrome.app.window.current().setBounds({
+    
+    'width': chrome.app.window.current().getBounds().width,
+    'height': chrome.app.window.current().getBounds().height,
+    'left': chrome.app.window.current().getBounds().left + 1,
+    'top': chrome.app.window.current().getBounds().top + 1
+    
+  });
+  
 }
