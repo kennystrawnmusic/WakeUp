@@ -2,12 +2,6 @@ window.onload = function() {
   
   window.ua = navigator.userAgent;
   
-  if(parseFloat(String(navigator.userAgent.match(/Chrome\/\d+\.\d+\.\d+\.\d+/)).substring(7, 11)) > 35) {
-    
-    document.getElementById('windowbar').style.webkitAppRegion = 'drag';
-    
-  }
-  
   document.getElementById('windowbar').style.width = window.innerWidth - 204 + 'px';
   
   document.getElementById('appcontent').style.width = window.innerWidth + 'px';
@@ -37,8 +31,7 @@ window.onload = function() {
     
     chrome.runtime.getPlatformInfo(function(info) {
       
-      var ua = navigator.userAgent;
-      if (info.arch == 'arm' && ua.match(/.*arm|armv7l.*Chrome\/32\.0\..*/)) {
+      if (info.arch == 'arm' && window.ua.match(/.*arm|armv7l.*Chrome\/32\.0\..*/)) {
         
         var opt = {
           type: "basic",
@@ -81,8 +74,7 @@ window.onload = function() {
     
     chrome.runtime.getPlatformInfo(function(info) {
       
-      var ua = navigator.userAgent;
-      if (info.arch == 'arm' && ua.match(/.*arm|armv7l.*Chrome\/32\.0\..*/)) {
+      if (info.arch == 'arm' && window.ua.match(/.*arm|armv7l.*Chrome\/32\.0\..*/)) {
         
         var opt = {
           type: "basic",
