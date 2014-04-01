@@ -1,5 +1,13 @@
 window.onload = function() {
   
+  window.ua = navigator.userAgent;
+  
+  if(parseFloat(String(navigator.userAgent.match(/Chrome\/\d+\.\d+\.\d+\.\d+/)).substring(7, 11)) > 35) {
+    
+    document.getElementById('windowbar').style.webkitAppRegion = 'drag';
+    
+  }
+  
   document.getElementById('windowbar').style.width = window.innerWidth - 204 + 'px';
   
   document.getElementById('appcontent').style.width = window.innerWidth + 'px';
