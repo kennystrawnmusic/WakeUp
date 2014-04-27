@@ -31,7 +31,7 @@ window.onload = function() {
     
     chrome.runtime.getPlatformInfo(function(info) {
       
-      if (info.arch == 'arm' && window.ua.match(/.*arm|armv7l.*Chrome\/32\.0\..*/)) {
+      if (window.ua.match(/.*armv7l.*/) && window.ua.match(/Chrome\/32\.0\..*/) && info.arch === 'arm') {
         
         var opt = {
           type: "basic",
@@ -74,7 +74,7 @@ window.onload = function() {
     
     chrome.runtime.getPlatformInfo(function(info) {
       
-      if (info.arch == 'arm' && window.ua.match(/.*arm|armv7l.*Chrome\/32\.0\..*/)) {
+      if (wwindow.ua.match(/.*armv7l.*/) && window.ua.match(/Chrome\/32\.0\..*/) && info.arch === 'arm') {
         
         var opt = {
           type: "basic",
