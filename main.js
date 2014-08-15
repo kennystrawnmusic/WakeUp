@@ -147,7 +147,7 @@ function notify() {
       
     } else if (id == 'notcros') {
       
-      chrome.management.uninstallSelf();
+      window.open().location = "http://www.google.com/intl/en/chrome/devices";
       
     } else if (id == 'extapis') {
       
@@ -175,7 +175,7 @@ function notify() {
       
     } else if (id == 'notcros') {
       
-      chrome.management.uninstallSelf();
+      window.open().location = "http://www.google.com/intl/en/chrome/devices";
       
     } else if (id == 'extapis') {
       
