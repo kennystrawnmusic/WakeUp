@@ -11,7 +11,6 @@ function WakeWindow(){
     minHeight: this.height,
     maxWidth: this.screenWidth,
     maxHeight: this.screenHeight,
-    transparentBackground: true,
     
     bounds: {
       
