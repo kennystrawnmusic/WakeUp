@@ -1,0 +1,15 @@
+{
+  "name": "Wake Up!",
+  "description": "Proof-of-concept packed app to keep device from going to sleep",
+  "homepage": "https://github.com/StrawnPoint04/WakeUp",
+  "keywords": [
+    "power"
+  ],
+  "author": "Kenny Strawn",
+  "private": false,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master",
+    "core-elements": "Polymer/core-elements#master",
+    "paper-elements": "Polymer/paper-elements#master"
+  }
+}
