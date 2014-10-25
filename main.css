@@ -4,7 +4,7 @@ html {
 
 #titleStatement {
   -webkit-app-region: drag;
-  font-family: "Chrome Droid Sans";
+  font-family: "Roboto", sans-serif;
   font-size: 40px;
   position: fixed;
   top: 0px;
@@ -22,7 +22,7 @@ html {
 .powertoggle {
   border: 0px;
   position: absolute;
-  font-family: "Chrome Droid Sans";
+  font-family: "Roboto", sans-serif;
   background-color: rgba(100, 100, 255, 0.2);
   height: 50px;
   font-size: 150%;
@@ -40,7 +40,7 @@ html {
 
 #powerEnd {
   box-shadow: 0px -5px 2.5px rgba(100, 100, 255, 0.2);
-  font-family: "Chrome Droid Sans";
+  font-family: "Roboto", sans-serif;
   position: fixed;
   border: 0px;
   background-color: #ff0000;
@@ -83,7 +83,7 @@ html {
   border: 0px;
   width: 125px;
   height: 75px;
-  font-family: "Chrome Droid Sans";
+  font-family: "Roboto", sans-serif;
   font-size: 22px;
 }
 
