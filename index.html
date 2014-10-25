@@ -5,19 +5,39 @@
     <title>Wake Up!</title>
     <link href="main.css" rel="stylesheet">
     <script src="powerkiller.js"></script>
+    <link rel="import" href="bower_components/core-icons/core-icons.html">
+    <link rel="import" href="bower_components/paper-ripple/paper-ripple.html">
 </head>
   <body>
-    <div id="windowbar">
-      <h1 id="titleStatement">Wake Up!</h1>
+    <core-toolbar id="windowbar">
+      <button id="windowmenu">
+        <core-icon icon="menu"><paper-ripple fit></paper-ripple></core-icon>
+      </button>
+      <div id="titleStatement" core-flex>Wake Up!</div>
+      <button id="bugreport">
+        ?
+        <paper-ripple fit></paper-ripple>
+      </button>
+    </core-toolbar>
+    <div id="wincontrols">
+      <button id="close" class="winmenuitems">
+        Close
+        <paper-ripple fit></paper-ripple>
+      </button>
     </div>
-    <button id="close" class="wincontrols">&times;</button>
-    <button id="minimize" class="wincontrols">&minus;</button>
-    <button id="maximize" class="wincontrols">+</button>
-    <button id="bugreport">?</button>
     <div id="appcontent">
-      <input type="button" id="power1" class="powertoggle" value="Keep system awake">
-      <input type="button" id="power2" class="powertoggle" value="Keep display awake">
-      <input type="button" id="powerEnd" value="Cancel">
+      <button id="power1" class="powertoggle">
+        Keep system awake
+        <paper-ripple fit></paper-ripple>
+      </button>
+      <button type="button" id="power2" class="powertoggle">
+        Keep display awake
+        <paper-ripple fit></paper-ripple>
+      </button>
+      <button type="button" id="powerEnd">
+        Cancel
+        <paper-ripple fit></paper-ripple>
+      </button>
     </div>
   </body>
 </html>
