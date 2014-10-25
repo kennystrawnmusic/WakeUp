@@ -32,6 +32,11 @@ function WakeWindow(){
 
 }
 
+chrome.app.runtime.onLaunched.addListener(function() {
+  
+  var w = new WakeWindow();
+  
+});
 
 function isCrOS() {
 
