@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Wake Up!",
   "description": "Proof-of-concept packaged app for keeping device from going to sleep",
-  "version": "6.3.1",
+  "version": "7.1",
   "minimum_chrome_version": "23",
   "icons": {
     "16": "icon_16.png",
