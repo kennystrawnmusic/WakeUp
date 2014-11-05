@@ -13,5 +13,5 @@ Build instructions (7.0+)
 
 1. Open the Dev Editor, then "Menu -> Git Clone"
 2. Right-click "WakeUp [master]" in the resulting left side pane, then click "Bower Install" to install the Bower dependencies
-3. Right-click "WakeUp [master] again, then click "Refactor for CSP" to make sure the dependencies take CSP compliance into account
+3. Right-click "WakeUp [master]" again, then click "Refactor for CSP" to make sure the dependencies take CSP compliance into account
 4. Click the "Run" (looks sort of like a Play button) to test the app
