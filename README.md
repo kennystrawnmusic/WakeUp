@@ -11,7 +11,7 @@ The [Chrome Dev Editor](https://chrome.google.com/webstore/detail/chrome-dev-edi
 Build instructions (7.0+)
 -------------------------
 
-1. Open the Dev Editor, then "Menu -> Git Clone" and plug in this app's URL to bootstrap the build
+1. Open the Dev Editor, then "Menu -> Git Clone" and plug in this project's URL to bootstrap the build
 2. Right-click "WakeUp [master]" in the resulting left side pane, then click "Bower Install" to install the Bower dependencies
 3. Right-click "WakeUp [master]" again, then click "Refactor for CSP" to make sure the dependencies take CSP compliance into account
 4. Click the "Run" button (looks sort of like a Play button) to test the app
