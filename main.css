@@ -2,6 +2,15 @@ html {
   background-color: rgb(50, 50, 50);
 }
 
+p {
+  display: block;
+  position: inherit;
+  left: inherit;
+  top: inherit;
+  width: inherit;
+  height: inherit;
+}
+
 #titleStatement {
   -webkit-app-region: drag;
   font-family: "Roboto", sans-serif;
@@ -78,6 +87,8 @@ html {
 }
 
 .winmenuitems {
+  box-shadow: 1px 5px 2.5px rgba(0, 0, 0, 0.8);
+  text-align: center;
   background-color: rgba(50, 50, 50, 0.999);
   color: #ffffff;
   border: 0px;
@@ -87,16 +98,8 @@ html {
   font-size: 22px;
 }
 
-#minimize {
-  top: 0px;
-}
-
-#maximize {
-  top: 76px;
-}
-
 #close {
-  top: 152px;
+  top: 51px;
 }
 
 #bugreport {
@@ -110,5 +113,10 @@ html {
 }
 
 paper-ripple {
+  position: inherit;
+  left: inherit;
+  top: inherit;
+  width: inherit;
+  height: inherit;
   color: rgba(255, 255, 255, 0.7);
 }
