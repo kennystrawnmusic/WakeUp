@@ -24,7 +24,7 @@ window.onload = function() {
   document.getElementById('powerEnd').style.left = document.getElementById('appcontent').style.left;
   document.getElementById('powerEnd').style.top = Math.floor(appContentHeightInt) + 'px';
 
-  document.getElementById('bugreport').onclick = function() { window.open().location = "https://chrome.google.com/webstore/support/" + chrome.runtime.id; }
+  document.getElementById('bugreport').onclick = function() { window.open().location = "https://chrome.google.com/webstore/support/" + chrome.runtime.id; };
 
   document.getElementById('windowbar').style.width = window.innerWidth + 'px';
 
@@ -35,7 +35,12 @@ window.onload = function() {
     //toggle the menu items
     if (document.getElementById('wincontrols').style.display == 'none') {
 
-      document.getElementById('wincontrols').style.display = 'inline';
+      document.getElementById('wincontrols').style.display = 'block';
+      document.getElementById('close').style.display = 'block';
+      document.getElementById('minimize').style.display = 'block';
+      
+      document.getElementById('close').style.width = document.getElementById('wincontrols').style.width;
+      document.getElementById('minimize').style.width = document.getElementById('wincontrols').style.width;
 
       document.getElementById('appcontent').style.left = '126px';
       document.getElementById('appcontent').style.width = Math.floor(window.innerWidth - 126) + 'px';
@@ -43,7 +48,8 @@ window.onload = function() {
       document.getElementById('power2').style.width = Math.floor(window.innerWidth - 126) + 'px';
       document.getElementById('powerEnd').style.width = Math.floor(window.innerWidth - 126) + 'px';
 
-      document.getElementById('close').onclick = function() { chrome.app.window.current().close(); }
+      document.getElementById('close').onclick = function() { chrome.app.window.current().close(); };
+      document.getElementById('minimize').onclick = function() { chrome.app.window.current().minimize(); };
 
 
     } else {
@@ -58,7 +64,7 @@ window.onload = function() {
 
     }
 
-  }
+  };
 
   document.getElementById('power1').onclick = function(e) {
 
@@ -71,7 +77,7 @@ window.onload = function() {
           title: "Please update to the beta channel for this app to work",
           message: "Several ARM users on Chrome OS 32.x have complained that the API seems to not work. Sinced this is only a 32.x-specific problem that has been fixed in 33, I, the sole developer, ask that you please switch channels to avoid this problem.",
           iconUrl: "icon_128.png"
-        }
+        };
 
         chrome.notifications.create('bugworkaround', opt, function(id) {
           console.log(id + 'message sent.');
@@ -86,7 +92,7 @@ window.onload = function() {
           title: "System kept awake",
           message: "To revert the system back to normal behavior, click the Cancel button",
           iconUrl: "icon_128.png"
-        }
+        };
 
         chrome.notifications.create("systemPowKeptAwake", opt, function(id) {
           id = "systemPowKeptAwake";
@@ -100,7 +106,7 @@ window.onload = function() {
     //make sure this event doesn't propagate into any overlaying elements
     e.stopPropagation();
 
-  }
+  };
 
   document.getElementById('power2').onclick = function(e) {
 
@@ -113,7 +119,7 @@ window.onload = function() {
           title: "Please update to the beta channel for this app to work",
           message: "Several ARM users on Chrome OS 32.x have complained that the API seems to not work. Sinced this is only a 32.x-specific problem that has been fixed in 33, I, the sole developer, ask that you please switch channels to avoid this problem.",
           iconUrl: "icon_128.png"
-        }
+        };
 
         chrome.notifications.create('bugworkaround', opt, function(id) {
           console.log(id + 'message sent.');
@@ -128,7 +134,7 @@ window.onload = function() {
           title: "Display kept awake",
           message: "To revert the display and system back to normal behavior, click the Cancel button",
           iconUrl: "icon_128.png"
-        }
+        };
 
         chrome.notifications.create("displayPowKeptAwake", opt, function (id) {
           id = "displayPowKeptAwake";
@@ -143,7 +149,7 @@ window.onload = function() {
 
     e.stopPropagation();
 
-  }
+  };
 
   document.getElementById('powerEnd').onclick = function() {
 
@@ -154,14 +160,14 @@ window.onload = function() {
       title: "Back to normal",
       message: "System has been reverted back to normal behavior",
       iconUrl: "icon_128.png"
-    }
+    };
 
     chrome.notifications.create("backToNormal", opt, function(id) {
       id = "backToNormal";
       console.log(id + " event fired.");
     });
 
-  }
+  };
 
   chrome.app.window.current().onBoundsChanged.addListener(function() {
 
@@ -201,4 +207,4 @@ window.onload = function() {
 
   });
 
-}
+};
