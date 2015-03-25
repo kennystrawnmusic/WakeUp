@@ -21,7 +21,7 @@ function WakeWindow(){
 
     }
 
-  }
+  };
 
   this.win = chrome.app.window.create('index.html', this.winOpts);
 
@@ -51,7 +51,7 @@ function isCrOS() {
         message: "You are using a computing device that isn't a Chromebook. Therefore, you have two reasons not to install: A, only devices running Chrome OS support the chrome.power API, rendering this app useless on your computer, and B, your system's internal, native power management settings already accomplish what this app tries to do, making use of this app completely unnecessary.",
         iconUrl: "icon_128.png"
 
-      }
+      };
 
       chrome.notifications.create('notcros', opt, function(id) {
 
@@ -88,13 +88,13 @@ function notify() {
   });
 
   chrome.notifications.onClicked.addListener(function(id) {
-
+     
+    var screenWidth = screen.availWidth;
+    var screenHeight = screen.availHeight;
+    var width = Math.floor(screenWidth/4);
+    var height = Math.floor(screenHeight*(4/5));
+    
     if (id == "systemPowKeptAwake") {
-
-      var screenWidth = screen.availWidth;
-      var screenHeight = screen.availHeight;
-      var width = Math.floor(screenWidth/4);
-      var height = Math.floor(screenHeight*(4/5));
 
       chrome.app.window.create('index.html', {
         frame: 'none',
@@ -110,11 +110,6 @@ function notify() {
       });
 
     } else if (id == "displayPowKeptAwake") {
-
-      var screenWidth = screen.availWidth;
-      var screenHeight = screen.availHeight;
-      var width = Math.floor(screenWidth/4);
-      var height = Math.floor(screenHeight*(4/5));
 
       chrome.app.window.create('index.html', {
         frame: 'none',
