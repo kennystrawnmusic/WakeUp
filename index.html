@@ -12,18 +12,27 @@
   <body>
     <core-toolbar id="windowbar">
       <button id="windowmenu">
-        <core-icon icon="menu"><paper-ripple fit></paper-ripple></core-icon>
+        <core-icon icon="menu">
+          <paper-ripple fit></paper-ripple>
+        </core-icon>
       </button>
       <div id="titleStatement" core-flex>Wake Up!</div>
       <button id="bugreport">
-        ?
-        <paper-ripple fit></paper-ripple>
+        <core-icon icon="bug-report">
+          <paper-ripple fit></paper-ripple>
+          </core-icon>
       </button>
     </core-toolbar>
     <div id="wincontrols">
       <button id="close" class="winmenuitems">
-        Close
-        <paper-ripple fit></paper-ripple>
+        <core-icon icon="cancel" alt="Close">
+          <paper-ripple fit></paper-ripple>
+        </core-icon>
+      </button>
+      <button id="minimize" class="winmenuitems">
+        <core-icon icon="remove-circle" alt="Minimize">
+          <paper-ripple fit></paper-ripple>
+        </core-icon>
       </button>
     </div>
     <div id="appcontent">
