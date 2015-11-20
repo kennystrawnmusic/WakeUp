@@ -20,10 +20,5 @@
     "notifications",
     "storage",
     "unlimitedStorage"
-  ],
-  "sockets": {
-    "tcp": {
-      "connect": "*"
-    }
-  }
+  ]
 }
