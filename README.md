@@ -15,3 +15,5 @@ Build instructions (7.0+)
 2. Right-click "WakeUp [master]" in the resulting left side pane, then click "Bower Install" to install the Bower dependencies
 3. Right-click "WakeUp [master]" again, then click "Refactor for CSP" to make sure the dependencies take CSP compliance into account
 4. Click the "Run" button (looks sort of like a Play button) to test the app
+
+Note: images cited in version 8.1 located [here](http://googledrive.com/host/0B1I0RDWad17WTGcxc1dtQ29DZDQ/) due to a CDE bug that constantly throws "connection reset" errors when changes are committed.
